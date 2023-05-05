@@ -1,0 +1,31 @@
+ this.id = id;
+        this.template = $(template);
+        this.container = container || {};
+
+        this.hide = function () {
+            $(this.id).hide();
+            return this;
+        }
+
+        this.show = function () {
+            $(this.id).show();
+            return this;
+        }
+
+        this.element = function(element){
+            if (!element){
+                return $(this.id);
+            }else{
+                return $(this.id).find(element);
+            }
+        }
+
+        this.isVisible = function () {
+            return $(this.id).is(":visible");
+        }
+
+        this.resize = function (width, height) {
+            for (var el in container) {
+                this.container[el].resize(width, height);
+            }
+        }
